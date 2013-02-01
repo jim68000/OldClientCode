@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>test</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Jim Smith">
+	<script src="types.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../sql.js" type="text/javascript" charset="utf-8"></script>
+	<script src="Modeliser.js" type="text/javascript" charset="utf-8"></script>
+	<script src="recommends.js" type="text/javascript" charset="utf-8"></script>
+	<script src="categories.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		var db = openDatabase('testdb', '', 'Top Apps', 1048576);
+		var r = Modeliser(Recommend);
+		r.create(db);
+		
+		var act = r.InstanceFactory(
+			{
+				"name": "jim", 
+				"id":123, 
+				"packageName": "package",
+				"category": "Boring",
+				"cost": "0.9",
+				"icon": "icon.png",
+				"shortDescription": "short description goes here",
+				"longDescription": "long description",
+				"type": "alcohol",
+				"publishedDate": "15/02/2011 08:28:26",
+				"releaseDate": "15/02/2011 08:28:26",
+				"catalogueDate": "15/02/2011 08:28:26"
+			});
+		act.commit(db);
+		var deed = r.InstanceFactory(
+			{
+				"name": "jim", 
+				"id":123, 
+				"packageName": "package",
+				"category": "Interesting",
+				"icon": "icon.png",
+				"shortDescription": "short description goes here",
+				"longDescription": "long description",
+				"type": "weed",
+				"publishedDate": "0/0/0 08:28:00",
+				"releaseDate": "15/02/2011 08:28:26",
+				"catalogueDate": "15/02/2011 08:28:26"
+			});
+		deed.commit(db);
+		
+		var cat = Modeliser(Category);
+		cat.create(db);
+		var meow = cat.InstanceFactory(
+			{
+				"title": "Hello",
+				"categoryId": "adhnd"
+			}
+		);
+		
+		
+		meow.commit(db);
+
+		try {
+			r.get_all(db, function(ret) {
+				console.log(ret[0].data.cost);
+			});			
+		} catch (e) {
+			console.log("ARRRG" + e);
+		}
+	
+		
+	</script>
+
+	
+	<!-- Date: 2011-04-08 -->
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>test_maths</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Jim Smith">
+	<script src="../maths.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../micro/assert.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../micro/micro.js" type="text/javascript" charset="utf-8"></script>
+	
+</head>
+<body>
+	<script type="text/javascript" charset="utf-8">
+		var t = ["4", "15", "8"];
+		assertEqual( function() {
+			return maths.amax(t);
+		}, 15, "Array max", "Max failed");
+		
+		
+		assertEqual( function() {
+			return maths.amin(t);
+		}, 4, "Array min", "Min failed");
+		
+
+		assertEqual( function() {
+			return maths.map(4, 10, 0, 5, 0);
+		}, 2, "Map", "Map failed");
+
+	</script>
+</body>
+</html>
